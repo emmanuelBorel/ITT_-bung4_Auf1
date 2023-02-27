@@ -1,0 +1,153 @@
+		
+		    /* Variablen */
+			:root {
+                --inner-basis-width: 30rem;
+                --default-spacing: 7rem;
+                --logo: 6rem;
+              }
+          
+              * {
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif
+              }
+              
+              
+              body {
+                  background: url(/images/bg.jpg) no-repeat center center fixed; /* Hintergrundbild */
+                  background-size: cover;
+                  margin: calc(var(--logo) + 2 * var(--default-spacing)) 0 0 0; /* Der ganze Inhalt Abstand halten für den header */
+              }
+              
+              /* Der Header-Container ist 100% breit und befindet sich immer oben (auch beim scrollen) */
+              header {
+                  position: fixed; left:0; top:0;
+                  z-index:2;
+                  width:100%;
+                  /* Das Hintergrundbild wird ein zweites mal gesetzt, damit es im Vordergrung bleibt */
+                  background: url(/images/bg.jpg) no-repeat center center fixed;
+                  background-size: cover;
+                  margin: 0 0 0 var(--default-spacing);
+              }
+              
+              main{
+                  display:flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  margin: var(--default-spacing) 0 0 var(--default-spacing);
+              }
+              
+              
+              #header_content{
+                  max-width: calc(var(--inner-basis-width) * 4 + 3rem);
+                  margin:auto;
+                  padding: var(--default-spacing) 0 0 0;
+              }
+              
+              section{
+                  flex: 1 1 var(--inner-basis-width);
+                  max-width: calc(var(--inner-basis-width) * 2);
+                  margin: 0 var(--default-spacing) var(--default-spacing) 0;
+                  padding: var(--default-spacing);
+                  overflow-y: scroll;
+              }
+              
+  
+              .line{	
+                  margin-bottom:var(--default-spacing);		
+              }
+              
+              #logo{
+                  height: var(--logo);
+                  width: var(--logo);
+                  
+              }
+              
+              #new_task {
+                  width:100%;
+                  font-size: 1.2rem;	
+                  padding:0.3rem;
+                  border: 1px solid #CCCCCC;
+              }
+              
+              #tasks_open{
+                  background-color: rgba(196, 204, 181, 0.8);
+              }
+              
+              #tasks_done{
+                  background-color: rgba(152,251,152,0.8);
+              }
+              
+              
+              /* abgerundete Ecken */
+              .rounded_corners{
+                  border-radius: 0.3rem;
+              }
+  
+              
+              /*Checkbox*/
+  
+                          
+              .checkbox_container {
+                display: block;
+                position: relative;
+                padding-left: 2rem;
+                cursor: pointer;
+                font-size: 1.2rem;
+                user-select: none;
+              }
+  
+              /* die eigentliche Checkbox verstecken */
+              .checkbox_container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+              }
+  
+              /* die neue Checkbox (ohne Hacken) */
+              .fakebox {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 1.4rem;
+                width: 1.4rem;
+                border: 0.2rem solid black;
+                border-radius: 1rem;
+              }
+  
+              /* graue Hintergrundfarbe bei Mouse-Over */
+              .checkbox_container:hover input ~ .fakebox {
+                background-color: #CCC;
+
+              }
+  
+  
+              /* Der Haken ist versteckt, wenn die Checkbox nicht checked ist */
+              .fakebox:after {
+                content: "";
+                position: absolute;
+                display: none;
+              }
+  
+              /* Haken anzeigen */
+              .checkbox_container input:checked ~ .fakebox:after {
+                display: block;
+              }
+  
+              /* Der Haken ist ein Viereck, bei dem nur zwei Ränder 
+              gezeigt werden. Das Viereck wird um 45 Grad gedreht. */
+              .checkbox_container .fakebox:after {
+                left: 0.5rem;
+                top: -0.6rem;
+                width: 0.4rem;
+                height: 1.2rem;
+                border: solid green;
+                border-width: 0 0.3rem 0.3rem 0;
+  
+                transform: rotate(45deg);
+              }
+              
+              /* Ende Checkbox */
+              
+          
